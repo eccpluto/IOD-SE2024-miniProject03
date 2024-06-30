@@ -15,16 +15,32 @@ const minionSchema = new Schema({
     item_id: { type: Number },
     tradeable: { type: Boolean },
     // should be a FK to behaviours collection
-    behaviour: {},
+    behaviour: { type: mongoose.Schema.Types.ObjectId, ref: 'behaviour' },
     // should be a FK to races collection
-    race: {},
+    race: { type: mongoose.Schema.Types.ObjectId, ref: 'races' },
     image: { type: String },
     icon: { type: String },
     owned: { type: String },
     // array of FKs to different sources
     sources: { type: Array },
     // there is a skill_type in here that should be a FK to the skill_types collection
-    verminion: { type: Object },
+    verminion: {
+        cost: { type: Number },
+        attack: { type: Number },
+        defense: { type: Number },
+        hp: { type: Number },
+        speed: { type: Number },
+        area_attack: { type: Boolean },
+        skill: { type: String },
+        skill_description: { type: String },
+        skill_angle: { type: Number },
+        skill_cost: { type: Number },
+        eye: { type: Boolean },
+        gate: { type: Boolean },
+        shield: { type: Boolean },
+        // FK to skill type collection
+        skill_type: { type: mongoose.Schema.Types.ObjectId, ref: 'skill_type' },
+    },
 });
 
 module.exports = mongoose.model("minion", minionSchema);
