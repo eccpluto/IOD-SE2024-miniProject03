@@ -9,10 +9,10 @@ const minionSchema = new Schema({
     name: { type: String, trim: true, required: true },
     description: { type: String, trim: true },
     enhanced_description: { type: String, trim: true },
-    toolTip: {},
-    patch: {},
+    toolTip: { type: String },
+    patch: { type: String },
     // can be null?
-    item_id: {},
+    item_id: {type: Number},
     tradeable: { type: Boolean },
     // should be a FK to behaviours collection
     behaviour: {},
