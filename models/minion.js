@@ -12,7 +12,7 @@ const minionSchema = new Schema({
     toolTip: { type: String },
     patch: { type: String },
     // can be null?
-    item_id: {type: Number},
+    item_id: { type: Number },
     tradeable: { type: Boolean },
     // should be a FK to behaviours collection
     behaviour: {},
