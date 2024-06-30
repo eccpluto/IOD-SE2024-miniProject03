@@ -1,7 +1,7 @@
 'use strict'
 const mongoose = require('mongoose');
 
-const uri = process.env.DB_URI || 'mongodb://127.0.0.1/miniproject3db';
+const uri = process.env.DB_URI || 'mongodb://127.0.0.1/ffiv_collections';
 
 mongoose.connect(uri)
     .then(() => console.log('MongoDB connedted.'))
