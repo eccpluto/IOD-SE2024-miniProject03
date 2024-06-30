@@ -7,8 +7,9 @@ require("dotenv").config();
 let dbConnect = require('./dbConnect');
 
 // // pull in routes
-// let userRoutes = require('./routes/userRoutes');
-// app.use('/api/users', userRoutes);
+let routes = require('./routes');
+app.use('/api/minions', routes.minionRoutes);
+// TODO add extra routes
 
 app.use(express.json());
 
