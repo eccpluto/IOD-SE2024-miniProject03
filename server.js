@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const minionController = require('./controllers').minionController;
 
 require("dotenv").config();
 
@@ -14,7 +15,8 @@ app.use('/api/minions', routes.minionRoutes);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.json({ messsage: "Welcome to my MongoDB application." })
+    minionController.populateMinions(res);
+    // res.json({ messsage: "Welcome to my MongoDB application." })
 });
 
 const PORT = process.env.PORT || 8080;
