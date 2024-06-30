@@ -21,4 +21,8 @@
 
 ## Vendor-specific consideration
 
-_TBC - this depends on deciding on a vendor for our 3rd party data, which will allow us to specify how we need to accomodate / adapt our application to consume this data._
+We will be using FFIV Collect API to populate our local database:
+
+[https://ffxivcollect.com/](https://ffxivcollect.com/)
+
+There are many collections that can be constructed, but we will focus on a subset and implement CRUD operations for these.
