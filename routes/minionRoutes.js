@@ -19,7 +19,8 @@ Router.post('/create', (req, res) => {
 // todo
 // update a minion
 Router.put('/:id', (req, res) => {
-    console.log('[minionRouter] delegating put http method to updateMinion.')
+    console.log('[minionRouter] delegating put http method to updateMinion.');
+    minionController.updateMinion(req, res);
 })
 
 // todo

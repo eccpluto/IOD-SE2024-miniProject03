@@ -48,14 +48,26 @@ const getMinions = (req, res) => {
 const createMinion = (req, res) => {
     console.log('[minionController] creating minion.');
     new minionModel(req.body).save()
-        .then(data => res.send({result: 200, data: data}))
+        .then(data => res.send({ result: 200, data: data }))
         .catch(err => {
             console.log('[minionController] error creating new minion.');
-            res.send({result: 500, error: err.message});
+            res.send({ result: 500, error: err.message });
         })
 };
 
+const updateMinion = (req, res) => {
+    console.log(`[minionController] updating minion, id: ${req.params.id}`);
+    minionModel.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    })
+        .then(data => res.send({ result: 200, data: data }))
+        .catch(error => {
+            console.log(error);
+            res.send({ result: 500, error: error.message });
+        })
+}
+
 module.exports = {
-    populateMinions, getMinions, createMinion
+    populateMinions, getMinions, createMinion, updateMinion
     // , deleteAll
 }
