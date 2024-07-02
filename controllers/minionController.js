@@ -40,7 +40,7 @@ const getMinions = (req, res) => {
     minionModel.find({})
         .then(data => res.send({ result: 200, data: data }))
         .catch(err => {
-            console.log('[minionController] error getting minions');
+            console.log(err);
             res.send({ result: 500, error: err.message })
         })
 };
@@ -50,7 +50,7 @@ const createMinion = (req, res) => {
     new minionModel(req.body).save()
         .then(data => res.send({ result: 200, data: data }))
         .catch(err => {
-            console.log('[minionController] error creating new minion.');
+            console.log(err);
             res.send({ result: 500, error: err.message });
         })
 };
@@ -67,7 +67,19 @@ const updateMinion = (req, res) => {
         })
 }
 
+const deleteMinion = (req, res) => {
+    console.log(`[minionController] deleting minion, id: ${req.params.id}`);
+    minionModel.findByIdAndDelete(req.params.id, req.body, {
+        new: true
+    })
+        .then(data => res.send({ result: 200, data: data }))
+        .catch(err => {
+            console.log(err);
+            res.send({ result: 500, error: err.message });
+        })
+}
+
 module.exports = {
-    populateMinions, getMinions, createMinion, updateMinion
+    populateMinions, getMinions, createMinion, updateMinion, deleteMinion
     // , deleteAll
 }

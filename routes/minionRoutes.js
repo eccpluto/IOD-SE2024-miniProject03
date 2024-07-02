@@ -26,7 +26,8 @@ Router.put('/:id', (req, res) => {
 // todo
 // delete a specific minion
 Router.delete('/:id', (req, res) => {
-    console.log('[minionRouter] delegating delete http method to deleteMinion.')
+    console.log('[minionRouter] delegating delete http method to deleteMinion.');
+    minionController.deleteMinion(req, res);
 })
 
 
