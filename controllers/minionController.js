@@ -22,7 +22,8 @@ const populateMinions = (res) => {
                     .then(json => {
                         console.log('[minionController] populating minions.');
                         res.send({ result: 200, data: json });
-                        minionModel.insertMany(json.results);
+                        minionModel.insertMany(json.results)
+                            // .then(insertedDocs => console.log(insertedDocs));
 
                         // set flag to indicate the collection now has entried from external api
                         isMinionsPopulated = true;
