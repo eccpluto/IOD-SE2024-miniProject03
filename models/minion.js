@@ -15,9 +15,9 @@ const minionSchema = new Schema({
     item_id: { type: Number },
     tradeable: { type: Boolean },
     // should be a FK to behaviours collection
-    behaviour: { type: mongoose.Schema.Types.ObjectId, ref: 'behaviour' },
+    // behaviour: { type: mongoose.Schema.Types.ObjectId, ref: 'behaviour' },
     // should be a FK to races collection
-    race: { type: mongoose.Schema.Types.ObjectId, ref: 'races' },
+    // race: { type: mongoose.Schema.Types.ObjectId, ref: 'races' },
     image: { type: String },
     icon: { type: String },
     owned: { type: String },
@@ -39,7 +39,7 @@ const minionSchema = new Schema({
         gate: { type: Boolean },
         shield: { type: Boolean },
         // FK to skill type collection
-        skill_type: { type: mongoose.Schema.Types.ObjectId, ref: 'skill_type' },
+        // skill_type: { type: mongoose.Schema.Types.ObjectId, ref: 'skill_type' },
     },
 });
 
