@@ -7,12 +7,12 @@ require("dotenv").config();
 // // pull in database setup code
 let dbConnect = require('./dbConnect');
 
+app.use(express.json());
+
 // // pull in routes
 let routes = require('./routes');
 app.use('/api/minions', routes.minionRoutes);
 // TODO add extra routes
-
-app.use(express.json());
 
 app.get("/", (req, res) => {
     console.log('[server] delegating get http method to populateMinions.')

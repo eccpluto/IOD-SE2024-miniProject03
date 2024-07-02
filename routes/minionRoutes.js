@@ -12,20 +12,20 @@ Router.get('/', (req, res) => {
 
 // add a new minion
 Router.post('/create', (req, res) => {
-    console.log('[minionRouter] delegating post http method to createMinion.')
-    
+    console.log('[minionRouter] delegating post http method to createMinion.');
+    minionController.createMinion(req, res);
 })
 
+// todo
 // update a minion
 Router.put('/:id', (req, res) => {
     console.log('[minionRouter] delegating put http method to updateMinion.')
-
 })
 
+// todo
 // delete a specific minion
 Router.delete('/:id', (req, res) => {
     console.log('[minionRouter] delegating delete http method to deleteMinion.')
-
 })
 
 

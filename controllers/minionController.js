@@ -45,7 +45,17 @@ const getMinions = (req, res) => {
         })
 };
 
+const createMinion = (req, res) => {
+    console.log('[minionController] creating minion.');
+    new minionModel(req.body).save()
+        .then(data => res.send({result: 200, data: data}))
+        .catch(err => {
+            console.log('[minionController] error creating new minion.');
+            res.send({result: 500, error: err.message});
+        })
+};
+
 module.exports = {
-    getMinions, populateMinions
+    populateMinions, getMinions, createMinion
     // , deleteAll
 }
