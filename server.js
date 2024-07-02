@@ -15,6 +15,7 @@ app.use('/api/minions', routes.minionRoutes);
 app.use(express.json());
 
 app.get("/", (req, res) => {
+    console.log('[server] delegating get http method to populateMinions.')
     minionController.populateMinions(res);
     // res.json({ messsage: "Welcome to my MongoDB application." })
 });
